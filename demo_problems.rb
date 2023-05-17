@@ -59,3 +59,54 @@ p fibs(3)
 p fibs(4)
 p fibs(5)
 p fibs(6)
+
+
+
+
+
+$count = 0
+def all_fibs(n)
+  $count += 1
+
+  return [] if n == 0
+  return [n] if n == 1
+  return [0,1] if n == 2
+
+  #fib(0) = []    <<  [0,1][-1]  + [0,1][-2]
+  all_fibs(n - 1) << all_fibs(n - 1)[-1] + all_fibs(n - 1)[-2]
+
+
+end
+
+p all_fibs(0)
+p all_fibs(1)
+p all_fibs(2)
+p all_fibs(3)
+p all_fibs(4)
+p all_fibs(5)
+
+
+$count = 0
+def new_all_fibs(n)
+
+  return [] if n == 0
+  return [n] if n == 1
+  return [0,1] if n == 2
+
+  prev_arr = new_all_fibs(n - 1)  #[0, 1]
+
+  prev_arr << prev_arr[-1] + prev_arr[-1] + prev_arr[-2]
+
+
+end
+
+p new_all_fibs(0)
+p new_all_fibs(1)
+p new_all_fibs(2)
+p new_all_fibs(3)
+p new_all_fibs(4)
+p new_all_fibs(5)
+p new_all_fibs(20)
+
+
+def pascal_triangle
