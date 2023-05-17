@@ -40,3 +40,22 @@ def rec_reverse(str)
   return str if str.length <= 1
   rec_reverse(str[1..-1]) + str[0]
 end
+
+p rec_reverse("cat")
+
+def fibs(n)
+  return 0 if n == 1
+  return 1 if n == 2
+
+  fibs(n - 1) + fibs(n - 2)
+
+
+
+end
+
+p fibs(1)
+p fibs(2)
+p fibs(3)
+p fibs(4)
+p fibs(5)
+p fibs(6)
