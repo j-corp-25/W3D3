@@ -118,7 +118,7 @@ def pascal_triangle(n)
   (0...last_row.length - 1).each do |i|
     next_row << last_row[i] + last_row[i + 1]
   end
-  
+
 
   next_row << 1
 
