@@ -85,10 +85,9 @@ def fib(n)
 end
 
 p fib(7)
-
+require "byebug"
 def bsearch(array,target)
-  
-  
+
   middle = (array.length / 2)
   left_side = array[0...middle] 
   right_side = array[middle+1..-1] 
@@ -97,12 +96,18 @@ def bsearch(array,target)
   return middle if array[middle] == target 
   
   if target > array[middle]
-    bsearch(right_side,target)
+    if bsearch(right_side,target) == nil
+      return nil
+    end          
+    bsearch(right_side,target) + middle + 1    
   else
     bsearch(left_side,target)
   end
 
 end
+
+
+
 
   
 p bsearch([1, 2, 3], 1) # => 0
@@ -112,3 +117,20 @@ p bsearch([1, 3, 4, 5, 9], 5) # => 3
 p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
 p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
 p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+
+
+def merge_sort(array)
+  newarr = []
+  return array[0] if array.length <= 1
+
+  middle = (array.length / 2)
+  left_side = array[0..middle] 
+  right_side = array[middle+1..-1]
+
+  newarr += merge_sort(left_side) 
+  return newarr
+
+end
+
+
+p merge_sort([1,2,36,4,3])
